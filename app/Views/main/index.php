@@ -80,21 +80,36 @@
                         '      <th scope="col">Shift 4</th>\n' +
                         '    </tr>\n' +
                         '  </thead>\n' +
-                        '  <tbody>'
-                    for(i = 0; i<data.length; i++){
+                        '  <tbody>';
+                    for(i = 0; i<data['jadwal'].length; i++){
                         html += '<tr>\n' +
                             '      <th scope="row">' + i + '</th>\n' +
-                            '      <td>' + data[i] + '</td>\n' +
-                            '      <td><input type="hidden" id="custId" name="jadwal[]" value="' + data[i] + '"></td>\n' +
-                            '      <td><input class="form-check-input" type="checkbox" value="1" id="defaultCheck1" name="shift[]"></td>\n' +
-                            '      <td><input class="form-check-input" type="checkbox" value="2" id="defaultCheck1" name="shift[]"></td>\n' +
-                            '      <td><input class="form-check-input" type="checkbox" value="3" id="defaultCheck1" name="shift[]"></td>\n' +
-                            '      <td><input class="form-check-input" type="checkbox" value="4" id="defaultCheck1" name="shift[]"></td>\n' +
-                            '    </tr>'
+                            '      <td>' + data['jadwal'][i] + '<input type="hidden" id="custId" name="jadwal[]" value="' + data['jadwal'][i] + '"></td>\n' +
+                            '      <td><div class="form-check"><input class="form-check-input" type="checkbox" value="1" id="defaultCheck1" name="shift[]"';
+                        if(data['shift1'][i] == "1"){
+                            html += 'disabled';
+                        }
+                        html += '></div></td>\n' +
+                            '      <td><div class="form-check"><input class="form-check-input" type="checkbox" value="2" id="defaultCheck1" name="shift[]"';
+                        if(data['shift2'][i] == '2'){
+                            html += 'disabled';
+                        }
+                        html += '></div></td>\n' +
+                            '      <td><div class="form-check"><input class="form-check-input" type="checkbox" value="3" id="defaultCheck1" name="shift[]"';
+                        if(data['shift3'][i] == '3'){
+                            html += 'disabled';
+                        }
+                        html += '></div></td>\n' +
+                            '      <td><div class="form-check"><input class="form-check-input" type="checkbox" value="4" id="defaultCheck1" name="shift[]"';
+                        if(data['shift4'][i] == '4'){
+                            html += 'disabled';
+                        }
+                        html += '></div></td>\n' +
+                            '    </tr>';
                     }
                     html += '</tbody>\n' +
                         '</table>' +
-                        '<button type="submit" class="btn btn-primary">Submit</button>'
+                        '<button type="submit" class="btn btn-primary">Submit</button>';
                     $('#apaan').html(html);
                 },
                 error: function (jqXHR, textStatus, errorThrown) {

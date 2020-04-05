@@ -3,6 +3,8 @@
 <?= $this->section('content') ?>
     <?= $this->include('partial\navbar') ?>
 
+    <span class="error"><?= \Config\Services::validation()->listErrors(); ?></span>
+
     <div class="container">
         <div class="row">
             <div class="col">
